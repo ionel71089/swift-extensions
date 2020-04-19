@@ -44,4 +44,10 @@ final class Array2dTests: XCTestCase {
 
         XCTAssertEqual(sut[.column(0)], [1, 2, 3])
     }
+
+    func testGetArray() {
+        let sut = Array2D(columns: 2, rows: 2, initialValue: 0)
+
+        XCTAssertEqual(sut.getArray(), [0, 0, 0, 0])
+    }
 }

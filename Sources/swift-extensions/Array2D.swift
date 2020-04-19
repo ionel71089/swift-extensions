@@ -44,10 +44,14 @@ public struct Array2D<T> {
                 }
 
             case let .column(column):
-                (0..<rows).forEach {
+                (0 ..< rows).forEach {
                     self[$0, column] = newValue[$0]
                 }
             }
         }
+    }
+
+    func getArray() -> [T] {
+        array
     }
 }
