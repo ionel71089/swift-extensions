@@ -43,7 +43,6 @@ public extension UIColor {
      */
     static func interpolate(from fromColor: UIColor, to toColor: UIColor, steps: Int) -> [UIColor] {
         stride(from: 0, through: 1, by: 1/Double(steps - 1)).map {
-            print($0)
             return interpolate(from: fromColor, to: toColor, with: CGFloat($0))
         }
     }
