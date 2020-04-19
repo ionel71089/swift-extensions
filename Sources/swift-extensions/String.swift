@@ -21,6 +21,6 @@ extension Character: Strideable {
     }
 }
 
-extension ClosedRange where Element == Character {
+public extension ClosedRange where Element == Character {
     var characters: [Character] { return Array(self) }
 }
