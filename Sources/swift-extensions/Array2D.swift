@@ -51,7 +51,7 @@ public struct Array2D<T> {
         }
     }
 
-    func getArray() -> [T] {
+    public func getArray() -> [T] {
         array
     }
 }
