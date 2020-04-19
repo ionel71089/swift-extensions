@@ -1,19 +1,12 @@
-//
-//  File.swift
-//  
-//
-//  Created by Ionel Lescai on 19/04/2020.
-//
-
 import UIKit
 
 public extension UIColor {
     /// The RGBA components associated with a `UIColor` instance.
     var components: (r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
-        let components = self.cgColor.components!
+        let components = cgColor.components!
 
         switch components.count == 2 {
-        case true : return (r: components[0], g: components[0], b: components[0], a: components[1])
+        case true: return (r: components[0], g: components[0], b: components[0], a: components[1])
         case false: return (r: components[0], g: components[1], b: components[2], a: components[3])
         }
     }
@@ -37,5 +30,20 @@ public extension UIColor {
         let a = (1 - progress) * fromComponents.a + progress * toComponents.a
 
         return UIColor(red: r, green: g, blue: b, alpha: a)
+    }
+
+    /**
+     Returns an array of `UIColor` by interpolating between two other `UIColor`s.
+
+     - Parameter fromColor: The `UIColor` to interpolate from
+     - Parameter toColor:   The `UIColor` to interpolate to (e.g. when fully interpolated)
+     - Parameter steps:     The interpolation progess; must be a `CGFloat` from 0 to 1
+
+     - Returns: The interpolated `UIColor` for the given progress point
+     */
+    static func interpolate(from fromColor: UIColor, to toColor: UIColor, steps: Int) -> [UIColor] {
+        stride(from: 0, to: 1, by: 1/Double(steps)).map {
+            interpolate(from: fromColor, to: toColor, with: CGFloat($0))
+        }
     }
 }
