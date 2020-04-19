@@ -11,7 +11,6 @@ import Foundation
 extension Character: Strideable {
     public typealias Stride = Int
 
-    // https://stackoverflow.com/questions/39982335/creating-a-countableclosedrangecharacter
     public func distance(to other: Character) -> Character.Stride {
         let stride = Int(String(self).unicodeScalars.first!.value) - Int(String(other).unicodeScalars.first!.value)
         return abs(stride)
@@ -23,6 +22,5 @@ extension Character: Strideable {
 }
 
 extension ClosedRange where Element == Character {
-
     var characters: [Character] { return Array(self) }
 }

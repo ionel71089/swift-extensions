@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension CaseIterable {
+public extension CaseIterable {
     static func randomCase() -> Self {
         allCases.randomElement()!
     }
