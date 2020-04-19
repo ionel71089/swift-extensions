@@ -42,8 +42,9 @@ public extension UIColor {
      - Returns: The interpolated `UIColor` for the given progress point
      */
     static func interpolate(from fromColor: UIColor, to toColor: UIColor, steps: Int) -> [UIColor] {
-        stride(from: 0, to: 1, by: 1/Double(steps)).map {
-            interpolate(from: fromColor, to: toColor, with: CGFloat($0))
+        stride(from: 0, through: 1, by: 1/Double(steps - 1)).map {
+            print($0)
+            return interpolate(from: fromColor, to: toColor, with: CGFloat($0))
         }
     }
 }
